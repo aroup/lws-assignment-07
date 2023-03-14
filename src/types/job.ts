@@ -17,6 +17,6 @@ export type JobsInitialState = {
 export type JobPostData = Omit<Job, "id">;
 
 export type JobPutData = {
-  id: string;
+  id: number;
   data: Partial<Job>;
 };

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Sidebar() {
   return (
@@ -48,10 +49,10 @@ export default function Sidebar() {
             </ul>
           </li>
           <li>
-            <a href="/jobs" className="main-menu" id="lws-addJob-menu">
+            <Link to="/create" className="main-menu" id="lws-addJob-menu">
               <i className="fa-solid fa-file-circle-plus"></i>
               <span>Add NewJob</span>
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>

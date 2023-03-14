@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { JobPostData, JobPutData, JobsInitialState } from "../types/job";
 import { addJob, deleteJob, editJob, getJobs } from "./jobsAPI";
+import { Job } from "../types/job";
 
 const initialState: JobsInitialState = {
   jobs: [],
@@ -34,7 +35,7 @@ export const changeJob = createAsyncThunk(
 
 export const removeJob = createAsyncThunk(
   "job/removeJob",
-  async (id: string) => {
+  async (id: number) => {
     const job = await deleteJob(id);
     return job;
   }
@@ -45,7 +46,7 @@ const jobSlice = createSlice({
   name: "job",
   initialState,
   reducers: {
-    editActive: (state, action) => {
+    editActive: (state, action: PayloadAction<number>) => {
       state.editing = action.payload;
     },
     editInActive: (state) => {
@@ -58,7 +59,7 @@ const jobSlice = createSlice({
         state.isError = false;
         state.isLoading = true;
       })
-      .addCase(fetchJobs.fulfilled, (state, action) => {
+      .addCase(fetchJobs.fulfilled, (state, action: PayloadAction<Job[]>) => {
         state.isError = false;
         state.isLoading = false;
         state.jobs = action.payload;
@@ -73,7 +74,7 @@ const jobSlice = createSlice({
         state.isError = false;
         state.isLoading = true;
       })
-      .addCase(createJob.fulfilled, (state, action) => {
+      .addCase(createJob.fulfilled, (state, action: PayloadAction<Job>) => {
         state.isError = false;
         state.isLoading = false;
         state.jobs.push(action.payload);
@@ -81,7 +82,7 @@ const jobSlice = createSlice({
       .addCase(createJob.rejected, (state, action) => {
         state.isLoading = false;
         state.isError = true;
-        state.error = action.error?.message || "";
+        state.error = action.error?.message || "error";
       })
       .addCase(changeJob.pending, (state) => {
         state.isError = false;
@@ -107,7 +108,6 @@ const jobSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(removeJob.fulfilled, (state, action) => {
-        console.log(action);
         state.isError = false;
         state.isLoading = false;
 

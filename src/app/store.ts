@@ -3,7 +3,7 @@ import jobsReducer from "../features/jobsSlice";
 
 export const store = configureStore({
   reducer: {
-    posts: jobsReducer,
+    jobs: jobsReducer,
   },
 });
 
