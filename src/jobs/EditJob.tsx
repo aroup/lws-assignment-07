@@ -48,7 +48,7 @@ export default function EditJob() {
         },
       })
     );
-    navigate("/");
+    navigate("/jobs");
   }
 
   return (

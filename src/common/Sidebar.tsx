@@ -7,50 +7,48 @@ export default function Sidebar() {
       <nav>
         <ul className="space-y-4">
           <li>
-            <a
-              href="/jobs"
+            <Link
+              to="/jobs"
               className="main-menu menu-active"
               id="lws-alljobs-menu"
             >
               <i className="fa-solid fa-briefcase"></i>
               <span> All Available Jobs</span>
-            </a>
+            </Link>
             <ul className="space-y-6 lg:space-y-2 ">
               <li>
-                <a
+                <Link
                   className="sub-menu"
-                  href="/jobs/internship"
+                  to="/jobs/internship"
                   id="lws-internship-menu"
                 >
-                  <i className="fa-solid fa-stop !text-[#FF5757]"></i>
+                  <i className="fa-solid fa-stop !text-[#FF5757]"></i>{" "}
                   Internship
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   className="sub-menu"
-                  href="/jobs/fulltime"
+                  to="/jobs/fulltime"
                   id="lws-fulltime-menu"
                 >
-                  <i className="fa-solid fa-stop !text-[#FF8A00]"></i>
-                  Full Time
-                </a>
+                  <i className="fa-solid fa-stop !text-[#FF8A00]"></i> Full Time
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   className="sub-menu"
-                  href="/jobs/remote"
+                  to="/jobs/remote"
                   id="lws-remote-menu"
                 >
-                  <i className="fa-solid fa-stop !text-[#56E5C4]"></i>
-                  Remote
-                </a>
+                  <i className="fa-solid fa-stop !text-[#56E5C4]"></i> Remote
+                </Link>
               </li>
             </ul>
           </li>
           <li>
             <Link to="/create" className="main-menu" id="lws-addJob-menu">
-              <i className="fa-solid fa-file-circle-plus"></i>
+              <i className="fa-solid fa-file-circle-plus"></i>{" "}
               <span>Add NewJob</span>
             </Link>
           </li>

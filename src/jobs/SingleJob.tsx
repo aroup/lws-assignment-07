@@ -18,7 +18,7 @@ export default function SingleJob({ job }: SingleJobProps) {
 
   function handleEdit() {
     dispatch(editActive(id));
-    navigate(`/jobs/${id}`);
+    navigate(`/edit/${id}`);
   }
 
   function getColor() {
