@@ -50,6 +50,7 @@ export default function JobsList() {
       if (Number(b.salary) > Number(a.salary)) return 1;
       return 0;
     }
+    return 0;
   }
 
   let content = null;
